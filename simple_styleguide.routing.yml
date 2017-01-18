@@ -1,19 +1,7 @@
 simple_styleguide.controller:
-  path: '/simple_styleguide'
+  path: '/simple-styleguide'
   defaults:
     _controller: '\Drupal\simple_styleguide\Controller\DefaultController::index'
     _title: 'Simple Styleguide'
   requirements:
     _permission: 'access content'
-
-
-simple_styleguide.simple_styleguide_config_form:
-  path: '/admin/config/simple_styleguide/simplestyleguideconfig'
-  defaults:
-    _form: '\Drupal\simple_styleguide\Form\SimpleStyleguideConfigForm'
-    _title: 'SimpleStyleguideConfigForm'
-  requirements:
-    _permission: 'access administration pages'
-  options:
-    _admin_route: TRUE
-
