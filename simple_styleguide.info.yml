@@ -1,0 +1,7 @@
+name: Simple Styleguide
+type: module
+description: TODO
+core: 8.x
+package: Styleguide
+#dependencies:
+#  - draggable_views
