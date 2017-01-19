@@ -18,8 +18,16 @@ class DefaultController extends ControllerBase {
    *   Return Hello string.
    */
   public function index() {
+    $storage = \Drupal::entityTypeManager()->getStorage('styleguide_segment');
+
+    $ids = $storage->getQuery()
+      ->execute();
+
+    $segments = $storage->loadMultiple($ids);
+
     return array(
       '#theme' => 'simple_styleguide',
+      '#segments' => $segments,
     );
   }
 

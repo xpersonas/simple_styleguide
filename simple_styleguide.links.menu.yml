@@ -1,0 +1,15 @@
+simple_styleguide.configuration_panel:
+  route_name: simple_styleguide.configuration_panel
+  title: 'Styleguide'
+  parent: system.admin_config
+  description: 'Configure styleguide settings.'
+  weight: -5
+
+# Styleguide segment menu items definition
+entity.styleguide_segment.collection:
+  title: 'Styleguide segments'
+  route_name: entity.styleguide_segment.collection
+  description: 'List Styleguide segments.'
+  parent: simple_styleguide.configuration_panel
+  weight: 99
+

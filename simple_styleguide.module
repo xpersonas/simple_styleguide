@@ -31,6 +31,7 @@ function simple_styleguide_theme() {
     'simple_styleguide' => [
       'template' => 'simple_styleguide',
       'render element' => 'children',
+      'variables' => ['segments' => NULL],
     ],
   ];
 }

@@ -1,0 +1,15 @@
+simple_styleguide.styleguide_segment.*:
+  type: config_entity
+  label: 'Styleguide segment config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    segment:
+      type: string
+      label: 'Segment'
+    uuid:
+      type: string
