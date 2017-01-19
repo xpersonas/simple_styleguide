@@ -12,4 +12,3 @@ entity.styleguide_segment.collection:
   description: 'List Styleguide segments.'
   parent: simple_styleguide.configuration_panel
   weight: 99
-

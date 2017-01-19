@@ -10,7 +10,7 @@ use Drupal\simpletest\WebTestBase;
  *
  * @group simple_styleguide
  */
-class LoadTest extends WebTestBase{
+class LoadTest extends WebTestBase {
 
   /**
    * Modules to enable.
