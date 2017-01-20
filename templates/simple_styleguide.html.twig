@@ -9,6 +9,13 @@
                     <li><a href="#{{ default_segment }}">{{ default_segment }}</a></li>
                 {% endfor %}
             </ul>
+            <ul class="simple-styleguide--jump-nav">
+                {% if custom_segments is defined and custom_segments is not empty %}
+                    {% for custom_segment in custom_segments %}
+                        <li><a href="#{{ custom_segment.label }}">{{ custom_segment.label|lower }}</a></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
         </div>
     </div><!-- end .shortcuts -->
 
