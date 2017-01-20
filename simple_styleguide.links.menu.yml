@@ -18,4 +18,3 @@ simple_styleguide.styleguide_settings:
   description: 'A description for the menu entry'
   parent: simple_styleguide.configuration_panel
   weight: 98
-

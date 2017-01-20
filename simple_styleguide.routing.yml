@@ -43,4 +43,3 @@ simple_styleguide.styleguide_settings:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
-

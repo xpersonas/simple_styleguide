@@ -70,42 +70,6 @@ class StyleguideSettings extends ConfigFormBase {
   }
 
   /**
-   * Callback for both ajax-enabled buttons.
-   *
-   * Selects and returns the fieldset with the names in it.
-   */
-  public function addmoreCallback(array &$form, FormStateInterface $form_state) {
-    $name_field = $form_state->get('num_names');
-    return $form['names_fieldset'];
-  }
-
-  /**
-   * Submit handler for the "add-one-more" button.
-   *
-   * Increments the max counter and causes a rebuild.
-   */
-  public function addOne(array &$form, FormStateInterface $form_state) {
-    $name_field = $form_state->get('num_names');
-    $add_button = $name_field + 1;
-    $form_state->set('num_names', $add_button);
-    $form_state->setRebuild();
-  }
-
-  /**
-   * Submit handler for the "remove one" button.
-   *
-   * Decrements the max counter and causes a form rebuild.
-   */
-  public function removeCallback(array &$form, FormStateInterface $form_state) {
-    $name_field = $form_state->get('num_names');
-    if ($name_field > 1) {
-      $remove_button = $name_field - 1;
-      $form_state->set('num_names', $remove_button);
-    }
-    $form_state->setRebuild();
-  }
-
-  /**
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
