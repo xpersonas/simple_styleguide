@@ -57,52 +57,14 @@ class StyleguideSettings extends ConfigFormBase {
       '#default_value' => $config->get('default_segments'),
     ];
 
-    // Bgn add more field.
-    // .........................................................................
-    $i = 0;
-    $name_field = $form_state->get('num_names');
-    $form['#tree'] = TRUE;
-    $form['names_fieldset'] = [
-      '#type' => 'fieldset',
+    $form['default_colors'] = array(
+      '#type' => 'textarea',
       '#title' => $this->t('Color Palette'),
-      '#prefix' => '<div id="names-fieldset-wrapper">',
-      '#suffix' => '</div>',
-    ];
-    if (empty($name_field)) {
-      $name_field = $form_state->set('num_names', 1);
-    }
-    for ($i = 0; $i < $name_field; $i++) {
-      $form['names_fieldset']['name'][$i] = [
-        '#type' => 'textfield',
-        '#title' => t('Color'),
-        '#description' => t('Use hex values only. For example: #FF0000.'),
-      ];
-    }
-    $form['actions'] = [
-      '#type' => 'actions',
-    ];
-    $form['names_fieldset']['actions']['add_name'] = [
-      '#type' => 'submit',
-      '#value' => t('Add one more'),
-      '#submit' => array('::addOne'),
-      '#ajax' => [
-        'callback' => '::addmoreCallback',
-        'wrapper' => 'names-fieldset-wrapper',
-      ],
-    ];
-    if ($name_field > 1) {
-      $form['names_fieldset']['actions']['remove_name'] = [
-        '#type' => 'submit',
-        '#value' => t('Remove one'),
-        '#submit' => array('::removeCallback'),
-        '#ajax' => [
-          'callback' => '::addmoreCallback',
-          'wrapper' => 'names-fieldset-wrapper',
-        ],
-      ];
-    }
-    // .........................................................................
-    // End add more field.
+      '#description' => $this->t('Each color should be on a separate line. Values should start with a hashtag. For example: #FF0000.'),
+      '#default_value' => ($config->get('default_colors') ? implode("\r\n", $config->get('default_colors')) : ''),
+      '#required' => TRUE,
+    );
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -155,12 +117,10 @@ class StyleguideSettings extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    $this->config('simple_styleguide.styleguidesettings')
-      ->set(
-        'default_segments', $form_state->getValue('default_segments'),
-        'name', $form_state->getValue('name')
-      )
-      ->save();
+    $config = $this->config('simple_styleguide.styleguidesettings');
+    $config->set('default_segments', $form_state->getValue('default_segments'));
+    $config->set('default_colors', explode("\r\n", $form_state->getValue('default_colors')));
+    $config->save();
   }
 
 }
