@@ -23,10 +23,10 @@
 .site-styles h3.sectionhead.first {
   margin-top: 20px;
 }
-.site-styles .styleguide {
+.site-styles .simple-styleguide {
   margin: 40px 0;
 }
-.site-styles .styleguide:after {
+.site-styles .simple-styleguide:after {
   content: "";
   display: block;
   clear: both;
@@ -34,7 +34,7 @@
 .site-styles .label {
   background: #ccc;
 }
-.site-styles .styleguide code {
+.site-styles .simple-styleguide code {
   display: block;
   background: #eee;
   padding: 10px;
@@ -52,14 +52,14 @@
   text-align: left;
 }
 
-.styleguide--jump-nav {
+.simple-styleguide--jump-nav {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px 0 0 0;
 }
 
-.styleguide--jump-nav li {
+.simple-styleguide--jump-nav li {
   list-style: none;
   margin: 0 0 10px 0;
   padding: 0;
