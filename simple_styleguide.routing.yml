@@ -6,26 +6,6 @@ simple_styleguide.controller:
   requirements:
     _permission: 'access style guide'
 
-#simple_styleguide.segments:
-#  route_name: system.admin_config_regional
-#  title: 'Styleguide'
-#  parent: system.admin_config
-#  description: 'Configure regional settings, localization, and translation.'
-#  weight: -5
-
-## This is the router item for listing all entities.
-#simple_styleguide.segments.list:
-#  path: '/admin/config/styleguide/segments'
-#  defaults:
-#    # '_entity_list' tells Drupal to use an entity list controller.
-#    # We give the entity ID here. Drupal then looks in the entity's annotation
-#    # and looks for the "list" entry under "controllers" for the class to load.
-#    # @see \Drupal\Core\Entity\Enhancer\EntityRouteEnhancer
-#    _entity_list: 'robot'
-#    _title: 'Styleguide segments'
-##  requirements:
-##    _permission: 'administer robots'
-
 simple_styleguide.configuration_panel:
   path: '/admin/config/styleguide'
   defaults:
@@ -51,4 +31,3 @@ simple_styleguide.styleguide_examples:
     _title: 'StyleguideExamples'
   requirements:
     _access: 'TRUE'
-  

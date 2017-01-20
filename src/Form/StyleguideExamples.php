@@ -138,7 +138,7 @@ class StyleguideExamples extends FormBase {
     ];
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => t('Submit'),
+      '#value' => $this->t('Submit'),
     ];
     $form['actions']['preview'] = array(
       '#type' => 'button',

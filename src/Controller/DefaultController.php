@@ -5,6 +5,7 @@ namespace Drupal\simple_styleguide\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Form\FormBuilderInterface;
 
 /**
  * Class DefaultController.
@@ -12,6 +13,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Drupal\simple_styleguide\Controller
  */
 class DefaultController extends ControllerBase {
+
+  /**
+   * The form builder.
+   *
+   * @var \Drupal\Core\Form\FormBuilderInterface
+   */
+  protected $formBuilder;
 
   /**
    * The entity manager.
@@ -23,15 +31,19 @@ class DefaultController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, FormBuilderInterface $form_builder) {
     $this->entityTypeManager = $entity_type_manager;
+    $this->formBuilder = $form_builder;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('entity_type.manager'));
+    return new static(
+      $container->get('entity_type.manager'),
+      $container->get('form_builder')
+    );
   }
 
   /**
@@ -83,7 +95,7 @@ class DefaultController extends ControllerBase {
       $custom_segments = $storage->loadMultiple($ids);
     }
 
-    $form = \Drupal::formBuilder()->getForm('Drupal\simple_styleguide\Form\StyleguideExamples');
+    $form = $this->formBuilder->getForm('Drupal\simple_styleguide\Form\StyleguideExamples');
 
     return array(
       '#theme' => 'simple_styleguide',
