@@ -4,6 +4,7 @@ namespace Drupal\simple_styleguide\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Class StyleguideSettings.
@@ -34,6 +35,11 @@ class StyleguideSettings extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('simple_styleguide.styleguidesettings');
 
+    $form['intro'] = [
+      '#markup' => 'Choose any of the default html segments you would like to see on your styleguide. You can also create custom segments as needed.',
+    ];
+
+    $button_link = Url::fromRoute('entity.styleguide_segment.collection')->toString();
     $form['default_segments'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Default Segments'),
@@ -53,13 +59,20 @@ class StyleguideSettings extends ConfigFormBase {
       '#default_value' => $config->get('default_segments'),
     ];
 
-    $form['default_colors'] = array(
-      '#type' => 'textarea',
-      '#title' => $this->t('Color Palette'),
-      '#description' => $this->t('Each color should be on a separate line.'),
-      '#default_value' => ($config->get('default_colors') ? implode("\r\n", $config->get('default_colors')) : ''),
+    $form['custom'] = [
+      '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Segments</a></p>',
+    ];
 
-      '#required' => TRUE,
+    $form['color_palette'] = [
+      '#type' => 'fieldset',
+      '#title' => $this->t('Color Palette'),
+    ];
+    $form['color_palette']['default_colors'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Hex|Name|Description'),
+      '#default_value' => ($config->get('default_colors') ? implode("\r\n", $config->get('default_colors')) : ''),
+      '#description' => $this->t('Separate values with a "|". For example:<br/>#FF0000|red|Descriptive text describing how this color will be used.'),
+      '#prefix' => $this->t('<p>Create a list of all the colors you would like represented in your styleguide. Each color should be on a separate line. By default, hex values will be used in an inline style for the color palette section of the styleguide.</p>'),
     );
 
     return parent::buildForm($form, $form_state);
