@@ -43,3 +43,12 @@ simple_styleguide.styleguide_settings:
     _permission: 'access administration pages'
   options:
     _admin_route: TRUE
+
+simple_styleguide.styleguide_examples:
+  path: '/simple_styleguide/form/styleguide_examples'
+  defaults:
+    _form: '\Drupal\simple_styleguide\Form\StyleguideExamples'
+    _title: 'StyleguideExamples'
+  requirements:
+    _access: 'TRUE'
+  

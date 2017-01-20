@@ -4,11 +4,13 @@
     <div class="shortcuts">
 
         <div class="simple-styleguide-menu-group common">
+            <strong>Default segments:</strong>
             <ul class="simple-styleguide--jump-nav">
                 {% for default_segment in default_segments %}
                     <li><a href="#{{ default_segment }}">{{ default_segment }}</a></li>
                 {% endfor %}
             </ul>
+            <strong>Custom segments:</strong>
             <ul class="simple-styleguide--jump-nav">
                 {% if custom_segments is defined and custom_segments is not empty %}
                     {% for custom_segment in custom_segments %}
@@ -24,7 +26,7 @@
         {% if default_colors is defined and default_colors is not empty %}
             <a name="colors"></a>
 
-            <h3 class="sectionhead">Colors</h3>
+            <h3 class="sectionhead">colors</h3>
 
             <div class="simple-styleguide">
                 <table class="color-chart responsive">
@@ -54,7 +56,7 @@
         {% if custom_segments is defined and custom_segments is not empty %}
             {% for custom_segment in custom_segments %}
                 <a name="{{ custom_segment.label }}"></a>
-                <h3 class="sectionhead">{{ custom_segment.label }}</h3>
+                <h3 class="sectionhead">{{ custom_segment.label|lower }}</h3>
 
                 <div class="simple-styleguide">
                     {{ custom_segment.segment|raw }}

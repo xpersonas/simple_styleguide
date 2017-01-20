@@ -83,11 +83,14 @@ class DefaultController extends ControllerBase {
       $custom_segments = $storage->loadMultiple($ids);
     }
 
+    $form = \Drupal::formBuilder()->getForm('Drupal\simple_styleguide\Form\StyleguideExamples');
+
     return array(
       '#theme' => 'simple_styleguide',
       '#default_segments' => $default_segments,
       '#default_colors' => $default_colors,
       '#custom_segments' => $custom_segments,
+      '#form' => $form,
     );
   }
 

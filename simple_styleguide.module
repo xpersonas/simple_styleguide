@@ -35,6 +35,7 @@ function simple_styleguide_theme() {
         'default_segments' => NULL,
         'default_colors' => NULL,
         'custom_segments' => NULL,
+        'form' => NULL,
       ],
     ],
   ];
