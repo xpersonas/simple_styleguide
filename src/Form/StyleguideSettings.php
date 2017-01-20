@@ -36,13 +36,13 @@ class StyleguideSettings extends ConfigFormBase {
     $config = $this->config('simple_styleguide.styleguidesettings');
 
     $form['intro'] = [
-      '#markup' => 'Choose any of the default html segments you would like to see on your styleguide. You can also create custom segments as needed.',
+      '#markup' => 'Choose any of the default html snippets you would like to see on your styleguide. You can also create custom snippets as needed.',
     ];
 
-    $button_link = Url::fromRoute('entity.styleguide_segment.collection')->toString();
-    $form['default_segments'] = [
+    $button_link = Url::fromRoute('entity.styleguide_snippet.collection')->toString();
+    $form['default_snippets'] = [
       '#type' => 'checkboxes',
-      '#title' => $this->t('Default Segments'),
+      '#title' => $this->t('Default Snippets'),
       '#options' => [
         'headings' => 'headings',
         'text' => 'text',
@@ -56,11 +56,11 @@ class StyleguideSettings extends ConfigFormBase {
         'buttons' => 'buttons',
         'pagination' => 'pagination',
       ],
-      '#default_value' => $config->get('default_segments'),
+      '#default_value' => $config->get('default_snippets'),
     ];
 
     $form['custom'] = [
-      '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Segments</a></p>',
+      '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Snippets</a></p>',
     ];
 
     $form['color_palette'] = [
@@ -92,7 +92,7 @@ class StyleguideSettings extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $config = $this->config('simple_styleguide.styleguidesettings');
-    $config->set('default_segments', $form_state->getValue('default_segments'));
+    $config->set('default_snippets', $form_state->getValue('default_snippets'));
     $config->set('default_colors', explode("\r\n", $form_state->getValue('default_colors')));
 
     $config->save();

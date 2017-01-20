@@ -6,16 +6,16 @@ use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
- * Provides a listing of Styleguide segment entities.
+ * Provides a listing of Styleguide snippet entities.
  */
-class StyleguideSegmentListBuilder extends ConfigEntityListBuilder {
+class StyleguideSnippetListBuilder extends ConfigEntityListBuilder {
 
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
     $header['label'] = $this->t('Label');
-    /*$header['segment'] = $this->t('Segment');*/
+    /*$header['snippet'] = $this->t('Snippet');*/
     /*$header['id'] = $this->t('Machine name');*/
     return $header + parent::buildHeader();
   }
@@ -25,7 +25,7 @@ class StyleguideSegmentListBuilder extends ConfigEntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     $row['label'] = $entity->label();
-    /*$row['segment'] = $entity->segment;*/
+    /*$row['snippet'] = $entity->snippet;*/
     /*$row['id'] = $entity->id();*/
 
     // You probably want a few more properties here...

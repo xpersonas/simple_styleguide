@@ -7,12 +7,12 @@ use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
 use Symfony\Component\Routing\Route;
 
 /**
- * Provides routes for Styleguide segment entities.
+ * Provides routes for Styleguide snippet entities.
  *
  * @see Drupal\Core\Entity\Routing\AdminHtmlRouteProvider
  * @see Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider
  */
-class StyleguideSegmentHtmlRouteProvider extends AdminHtmlRouteProvider {
+class StyleguideSnippetHtmlRouteProvider extends AdminHtmlRouteProvider {
 
   /**
    * {@inheritdoc}

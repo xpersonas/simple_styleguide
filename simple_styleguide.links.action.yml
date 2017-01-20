@@ -1,5 +1,5 @@
-entity.styleguide_segment.add_form:
-  route_name: 'entity.styleguide_segment.add_form'
-  title: 'Add styleguide segment'
+entity.styleguide_snippet.add_form:
+  route_name: 'entity.styleguide_snippet.add_form'
+  title: 'Add styleguide snippet'
   appears_on:
-    - entity.styleguide_segment.collection
+    - entity.styleguide_snippet.collection

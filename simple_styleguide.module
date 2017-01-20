@@ -32,9 +32,9 @@ function simple_styleguide_theme() {
       'template' => 'simple_styleguide',
       'render element' => 'children',
       'variables' => [
-        'default_segments' => NULL,
+        'default_snippets' => NULL,
         'default_colors' => NULL,
-        'custom_segments' => NULL,
+        'custom_snippets' => NULL,
         'form' => NULL,
       ],
     ],

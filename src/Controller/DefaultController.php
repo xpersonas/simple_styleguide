@@ -55,14 +55,14 @@ class DefaultController extends ControllerBase {
   public function index() {
     $config = $this->config('simple_styleguide.styleguidesettings');
     $config_colors = $config->get('default_colors');
-    $config_segments = $config->get('default_segments');
+    $config_snippets = $config->get('default_snippets');
 
-    // Selected segments.
-    $default_segments = '';
-    if ($config_segments) {
-      foreach ($config_segments as $key => $value) {
+    // Selected snippets.
+    $default_snippets = '';
+    if ($config_snippets) {
+      foreach ($config_snippets as $key => $value) {
         if ($value) {
-          $default_segments[] = $key;
+          $default_snippets[] = $key;
         }
       }
     }
@@ -87,21 +87,21 @@ class DefaultController extends ControllerBase {
       }
     }
 
-    // Custom segments.
-    $custom_segments = '';
-    $storage = $this->entityTypeManager->getStorage('styleguide_segment');
+    // Custom snippets.
+    $custom_snippets = '';
+    $storage = $this->entityTypeManager->getStorage('styleguide_snippet');
     $ids = $storage->getQuery()->execute();
     if (!empty($ids)) {
-      $custom_segments = $storage->loadMultiple($ids);
+      $custom_snippets = $storage->loadMultiple($ids);
     }
 
     $form = $this->formBuilder->getForm('Drupal\simple_styleguide\Form\StyleguideExamples');
 
     return array(
       '#theme' => 'simple_styleguide',
-      '#default_segments' => $default_segments,
+      '#default_snippets' => $default_snippets,
       '#default_colors' => $default_colors,
-      '#custom_segments' => $custom_segments,
+      '#custom_snippets' => $custom_snippets,
       '#form' => $form,
     );
   }

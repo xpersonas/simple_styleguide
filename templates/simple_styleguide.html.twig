@@ -3,30 +3,30 @@
 <div class="site-styles">
     <div class="shortcuts">
 
-        {% if default_segments is empty %}
-        {% if custom_segments is empty %}
+        {% if default_snippets is empty %}
+        {% if custom_snippets is empty %}
         {% if default_colors is empty %}
-            <p>You have not selected or created any styleguide segments.</p>
+            <p>You have not selected or created any styleguide snippets.</p>
             <p><a href="{{ url('simple_styleguide.styleguide_settings') }}" class="button">Configure Simple Styleguide</a></p>
         {% endif %}
         {% endif %}
         {% endif %}
 
         <div class="simple-styleguide-menu-group common">
-            {% if default_segments is defined and default_segments is not empty %}
-            <strong>Default segments:</strong>
+            {% if default_snippets is defined and default_snippets is not empty %}
+            <strong>Default snippets:</strong>
             <ul class="simple-styleguide--jump-nav">
-                {% for default_segment in default_segments %}
-                    <li><a href="#{{ default_segment }}">{{ default_segment }}</a></li>
+                {% for default_snippet in default_snippets %}
+                    <li><a href="#{{ default_snippet }}">{{ default_snippet }}</a></li>
                 {% endfor %}
             </ul>
             {% endif %}
 
-            {% if custom_segments is defined and custom_segments is not empty %}
-            <strong>Custom segments:</strong>
+            {% if custom_snippets is defined and custom_snippets is not empty %}
+            <strong>Custom snippets:</strong>
             <ul class="simple-styleguide--jump-nav">
-                {% for custom_segment in custom_segments %}
-                    <li><a href="#{{ custom_segment.label }}">{{ custom_segment.label|lower }}</a></li>
+                {% for custom_snippet in custom_snippets %}
+                    <li><a href="#{{ custom_snippet.label }}">{{ custom_snippet.label|lower }}</a></li>
                 {% endfor %}
             </ul>
             {% endif %}
@@ -59,19 +59,19 @@
         {% endif %}
 
         {# -- SEGMENTS ------------------------------------------------------ #}
-        {% for default_segment in default_segments %}
-            {% set segment = '@simple_styleguide/includes/' ~ default_segment ~ '.html.twig' %}
-            {% include(segment) %}
+        {% for default_snippet in default_snippets %}
+            {% set snippet = '@simple_styleguide/includes/' ~ default_snippet ~ '.html.twig' %}
+            {% include(snippet) %}
         {% endfor %}
 
         {# -- CUSTOM SEGMENTS ----------------------------------------------- #}
-        {% if custom_segments is defined and custom_segments is not empty %}
-            {% for custom_segment in custom_segments %}
-                <a name="{{ custom_segment.label }}"></a>
-                <h3 class="sectionhead">{{ custom_segment.label|lower }}</h3>
+        {% if custom_snippets is defined and custom_snippets is not empty %}
+            {% for custom_snippet in custom_snippets %}
+                <a name="{{ custom_snippet.label }}"></a>
+                <h3 class="sectionhead">{{ custom_snippet.label|lower }}</h3>
 
                 <div class="simple-styleguide">
-                    {{ custom_segment.segment|raw }}
+                    {{ custom_snippet.snippet|raw }}
                 </div>
             {% endfor %}
         {% endif %}

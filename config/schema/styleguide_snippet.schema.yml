@@ -1,6 +1,6 @@
-simple_styleguide.styleguide_segment.*:
+simple_styleguide.styleguide_snippet.*:
   type: config_entity
-  label: 'Styleguide segment config'
+  label: 'Styleguide snippet config'
   mapping:
     id:
       type: string
@@ -8,8 +8,8 @@ simple_styleguide.styleguide_segment.*:
     label:
       type: label
       label: 'Label'
-    segment:
+    snippet:
       type: string
-      label: 'Segment'
+      label: 'Snippet'
     uuid:
       type: string

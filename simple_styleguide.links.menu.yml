@@ -5,10 +5,10 @@ simple_styleguide.configuration_panel:
   description: 'Configure simple styleguide settings.'
   weight: -5
 
-entity.styleguide_segment.collection:
-  title: 'Simple Styleguide segments'
-  route_name: entity.styleguide_segment.collection
-  description: 'List Simple Styleguide segments.'
+entity.styleguide_snippet.collection:
+  title: 'Simple Styleguide snippets'
+  route_name: entity.styleguide_snippet.collection
+  description: 'List Simple Styleguide snippets.'
   parent: simple_styleguide.configuration_panel
   weight: 99
 
