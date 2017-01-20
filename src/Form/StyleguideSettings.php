@@ -60,8 +60,9 @@ class StyleguideSettings extends ConfigFormBase {
     $form['default_colors'] = array(
       '#type' => 'textarea',
       '#title' => $this->t('Color Palette'),
-      '#description' => $this->t('Each color should be on a separate line. Values should start with a hashtag. For example: #FF0000.'),
+      '#description' => $this->t('Each color should be on a separate line.'),
       '#default_value' => ($config->get('default_colors') ? implode("\r\n", $config->get('default_colors')) : ''),
+
       '#required' => TRUE,
     );
 
@@ -120,6 +121,7 @@ class StyleguideSettings extends ConfigFormBase {
     $config = $this->config('simple_styleguide.styleguidesettings');
     $config->set('default_segments', $form_state->getValue('default_segments'));
     $config->set('default_colors', explode("\r\n", $form_state->getValue('default_colors')));
+
     $config->save();
   }
 
