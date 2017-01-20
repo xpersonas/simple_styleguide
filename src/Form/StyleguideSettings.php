@@ -39,7 +39,6 @@ class StyleguideSettings extends ConfigFormBase {
       '#markup' => 'Choose any of the default html snippets you would like to see on your styleguide. You can also create custom snippets as needed.',
     ];
 
-    $button_link = Url::fromRoute('entity.styleguide_snippet.collection')->toString();
     $form['default_snippets'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Default Snippets'),
@@ -56,9 +55,10 @@ class StyleguideSettings extends ConfigFormBase {
         'buttons' => 'buttons',
         'pagination' => 'pagination',
       ],
-      '#default_value' => $config->get('default_snippets'),
+      '#default_value' => (count($config->get('default_snippets')) > 0) ? $config->get('default_snippets') : array(),
     ];
 
+    $button_link = Url::fromRoute('entity.styleguide_snippet.collection')->toString();
     $form['custom'] = [
       '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Snippets</a></p>',
     ];

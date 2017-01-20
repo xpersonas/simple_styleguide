@@ -32,6 +32,7 @@ class StyleguideSnippetForm extends EntityForm {
       '#type' => 'textarea',
       '#title' => $this->t('Snippet'),
       '#rows' => 15,
+//      '#format' => 'full_html',
       '#default_value' => $styleguide_snippet->snippet,
     );
 

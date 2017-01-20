@@ -22,7 +22,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     },
  *   },
  *   config_prefix = "styleguide_snippet",
- *   admin_permission = "administer site configuration",
+ *   admin_permission = "administer style guide",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
