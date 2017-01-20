@@ -1,0 +1,7 @@
+simple_styleguide.default:
+  version: 1.0
+  css:
+    theme:
+      css/styleguide.css: {}
+#  js:
+#    js/rainbow-headings.js: { }

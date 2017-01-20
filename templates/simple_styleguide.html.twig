@@ -2,3 +2,85 @@
 {% for segment in segments %}
     {{ segment.label }}<br/>
 {% endfor %}
+
+<hr/>
+
+{{ attach_library('simple_styleguide/styleguide.default') }}
+
+<div class="site-styles">
+    <div class="shortcuts">
+
+        <div class="styleguide-menu-group common">
+            <ul class="styleguide--jump-nav">
+                <li><a href="#colors">Colors</a></li>
+                <li><a href="#headings">Headings</a></li>
+                <li><a href="#text">Text</a></li>
+                <li><a href="#blockquote">Blockquotes</a></li>
+                <li><a href="#ul">Lists</a></li>
+                <li><a href="#hr">Horizontal Rules</a></li>
+                <li><a href="#table">Tables</a></li>
+                <li><a href="#form">Forms</a></li>
+                <li><a href="#buttons">Buttons</a></li>
+                <li><a href="#image-float-left">Image Floats</a></li>
+                <li><a href="#alerts">Alerts</a></li>
+                <li><a href="#pagination">Pagination</a></li>
+                <li><a href="#breadcrumbs">Breadcrumbs</a></li>
+                <li><a href="#icons">Icons</a></li>
+                {#<li><a href="#media">Media</a></li>#}
+            </ul>
+        </div>
+    </div><!-- end .shortcuts -->
+
+    <div class="sections">
+        {# -- COLORS ----------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/colors.html.twig") %}
+
+        {# -- HEADINGS --------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/headings.html.twig") %}
+
+        {# -- TEXT ------------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/text.html.twig") %}
+
+        {# -- BLOCKQUOTE ------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/blockquote.html.twig") %}
+
+        {# -- LISTS ------------------------------------------------------------ #}
+        {% include("@simple_styleguide/includes/lists.html.twig") %}
+
+        {# -- HORIZONTAL RULE -------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/rule.html.twig") %}
+
+        {# -- TABLE ------------------------------------------------------------ #}
+        {% include("@simple_styleguide/includes/table.html.twig") %}
+
+        {# -- LOGIN FORMS ------------------------------------------------------ #}
+        {# --------------------------------------------------------------------- #}
+
+        {# -- FORMS ------------------------------------------------------------ #}
+        {% include("@simple_styleguide/includes/forms.html.twig") %}
+
+        {# -- BUTTONS ---------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/buttons.html.twig") %}
+
+        {# -- IMAGES ----------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/images.html.twig") %}
+
+        {# -- ALERTS ----------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/alerts.html.twig") %}
+
+        {# -- PAGINATION ------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/pagination.html.twig") %}
+
+        {# -- BREADCRUMB ------------------------------------------------------- #}
+        {% include("@simple_styleguide/includes/breadcrumbs.html.twig") %}
+
+        {# -- ICONS ------------------------------------------------------------ #}
+        {% include("@simple_styleguide/includes/icons.html.twig") %}
+
+        {# -- RESPONSIVE IMAGES ------------------------------------------------ #}
+        {# --------------------------------------------------------------------- #}
+
+        {# -- MEDIA ELEMENTS --------------------------------------------------- #}
+        {#{% include("@simple_styleguide/includes/media.html.twig") %}#}
+    </div><!-- end .sections -->
+</div>

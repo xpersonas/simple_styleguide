@@ -5,10 +5,17 @@ simple_styleguide.configuration_panel:
   description: 'Configure styleguide settings.'
   weight: -5
 
-# Styleguide segment menu items definition
 entity.styleguide_segment.collection:
   title: 'Styleguide segments'
   route_name: entity.styleguide_segment.collection
   description: 'List Styleguide segments.'
   parent: simple_styleguide.configuration_panel
   weight: 99
+
+simple_styleguide.styleguide_settings:
+  title: 'Styleguide settings'
+  route_name: simple_styleguide.styleguide_settings
+  description: 'A description for the menu entry'
+  parent: simple_styleguide.configuration_panel
+  weight: 98
+
