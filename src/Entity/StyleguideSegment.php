@@ -54,13 +54,6 @@ class StyleguideSegment extends ConfigEntityBase implements StyleguideSegmentInt
   protected $label;
 
   /**
-   * @param string $label
-   */
-  public function setLabel($label) {
-    $this->label = $label;
-  }
-
-  /**
    * The styleguide segment.
    *
    * @var string
