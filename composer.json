@@ -1,14 +1,12 @@
 {
-  "name": "drupal/simple_styleguide",
+  "name": "drupal/simple_recaptcha",
+  "description": "Simple, configurable styleguide module.",
   "type": "drupal-module",
-  "description": "TODO",
-  "keywords": ["Drupal"],
-  "license": "GPL-2.0+",
-  "homepage": "https://www.drupal.org/project/simple_styleguide",
-  "minimum-stability": "dev",
-  "support": {
-    "issues": "https://www.drupal.org/project/issues/simple_styleguide",
-    "source": "http://cgit.drupalcode.org/simple_styleguide"
+  "source": {
+    "url": "https://git.drupal.org/sandbox/xpersonas/2844715.git",
+    "type": "git",
+    "reference": "refs/heads/8.x-1.x"
   },
+  "license": "GPL-2.0+",
   "require": { }
 }
