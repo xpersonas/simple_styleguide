@@ -1,6 +1,6 @@
 {
   "name": "drupal/simple_styleguide",
-  "description": "Simple, configurable styleguide module.",
+  "description": "Simple, configurable style guide module.",
   "type": "drupal-module",
   "source": {
     "url": "https://git.drupal.org/sandbox/xpersonas/2844715.git",
