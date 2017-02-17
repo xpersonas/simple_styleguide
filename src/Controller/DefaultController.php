@@ -74,11 +74,15 @@ class DefaultController extends ControllerBase {
         $color_split = explode('|', $value);
 
         if (!empty($color_split[0])) {
-          $default_colors[$key]['name'] = $color_split[0];
+          $default_colors[$key]['hex'] = $color_split[0];
+
+          $rgb = array_map('hexdec', str_split(ltrim($color_split[0], '#'), 2));
+          $rgb_value = implode(',', $rgb);
+          $default_colors[$key]['rgb'] = $rgb_value;
         }
 
         if (!empty($color_split[1])) {
-          $default_colors[$key]['hex'] = $color_split[1];
+          $default_colors[$key]['class'] = $color_split[1];
         }
 
         if (!empty($color_split[2])) {

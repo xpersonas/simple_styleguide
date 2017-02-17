@@ -1,7 +1,7 @@
 {{ attach_library('simple_styleguide/simple_styleguide.default') }}
 
-<div class="site-styles">
-    <div class="shortcuts">
+<div class="simple-styleguide--site-styles">
+    <div class="site-styles--shortcuts">
 
         {% if default_snippets is empty %}
         {% if custom_snippets is empty %}
@@ -38,23 +38,21 @@
         {% if default_colors is defined and default_colors is not empty %}
             <a name="colors"></a>
 
-            <h3 class="sectionhead">colors</h3>
+            <h3 class="simple-styleguide--sectionhead">colors</h3>
 
             <div class="simple-styleguide">
-                <table class="color-chart responsive">
-                    <tr>
-                        <th>Preview</th>
-                        <th>Hex Color Code</th>
-                        <th>Usage</th>
-                    </tr>
-                    {% for default_color in default_colors %}
-                    <tr>
-                        <td width="25%"><div class="colorblock {{ default_color.name }}" style="background-color: {{ default_color.hex }}"></div></td>
-                        <td width="35%">{{ default_color.hex }}</td>
-                        <td width="40%">{% if default_color.description is defined and default_color.description is not empty %}<p>{{ default_color.description }}</p>{% endif %}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+                <div class="simple-styleguide--colors">
+                {% for default_color in default_colors %}
+                    <div class="simple-styleguide--color">
+                        <div class="simple-styleguide--color--block {{ default_color.class }}" style="background-color: {{ default_color.hex }}"></div>
+                        <div class="simple-styleguide--color--swatch">
+                            <span class="simple-styleguide--color--swatch--class"><label>class:</label> {{ default_color.class }}</span>
+                            <span class="simple-styleguide--color--swatch--values"><label>values:</label> {{ default_color.hex }} | rgb({{ default_color.rgb }})</span>
+                            <span class="simple-styleguide--color--swatch--usage"><label>usage:</label> {{ default_color.description }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
             </div>
         {% endif %}
 
@@ -68,10 +66,14 @@
         {% if custom_snippets is defined and custom_snippets is not empty %}
             {% for custom_snippet in custom_snippets %}
                 <a name="{{ custom_snippet.label }}"></a>
-                <h3 class="sectionhead">{{ custom_snippet.label|lower }}</h3>
+                <h3 class="simple-styleguide--sectionhead">{{ custom_snippet.label|lower }}</h3>
 
                 <div class="simple-styleguide">
                     {{ custom_snippet.snippet|raw }}
+                    <div class="simple-styleguide--snippet">
+                        <a class="simple-styleguide--view-sourecode">View Source</a>
+                        <pre>{{ custom_snippet.snippet }}</pre>
+                    </div>
                 </div>
             {% endfor %}
         {% endif %}

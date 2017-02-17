@@ -3,5 +3,5 @@ simple_styleguide.default:
   css:
     theme:
       css/simple-styleguide.css: {}
-#  js:
-#    js/rainbow-headings.js: { }
+  js:
+    js/simple-styleguide.js: {}

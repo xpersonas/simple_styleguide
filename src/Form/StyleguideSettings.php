@@ -69,9 +69,9 @@ class StyleguideSettings extends ConfigFormBase {
     ];
     $form['color_palette']['default_colors'] = array(
       '#type' => 'textarea',
-      '#title' => $this->t('Hex|Name|Description'),
+      '#title' => $this->t('Hex Color Code|Class Name|Usage Description'),
       '#default_value' => ($config->get('default_colors') ? implode("\r\n", $config->get('default_colors')) : ''),
-      '#description' => $this->t('Separate values with a "|". For example:<br/>#FF0000|red|Descriptive text describing how this color will be used.'),
+      '#description' => $this->t('For example: #FF0000|red|Usage text...'),
       '#prefix' => $this->t('<p>Create a list of all the colors you would like represented in your styleguide. Each color should be on a separate line. By default, hex values will be used in an inline style for the color palette section of the styleguide.</p>'),
     );
 
