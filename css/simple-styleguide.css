@@ -117,3 +117,7 @@
   width: 100%;
   height: 100px;
 }
+
+.simple-styleguide--site-styles a {
+  cursor: pointer;
+}
