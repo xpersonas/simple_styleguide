@@ -55,14 +55,14 @@ class DefaultController extends ControllerBase {
   public function index() {
     $config = $this->config('simple_styleguide.styleguidesettings');
     $config_colors = $config->get('default_colors');
-    $config_snippets = $config->get('default_snippets');
+    $config_patterns = $config->get('default_patterns');
 
-    // Selected snippets.
-    $default_snippets = '';
-    if ($config_snippets) {
-      foreach ($config_snippets as $key => $value) {
+    // Selected patterns.
+    $default_patterns = '';
+    if ($config_patterns) {
+      foreach ($config_patterns as $key => $value) {
         if ($value) {
-          $default_snippets[] = $key;
+          $default_patterns[] = $key;
         }
       }
     }
@@ -91,21 +91,21 @@ class DefaultController extends ControllerBase {
       }
     }
 
-    // Custom snippets.
-    $custom_snippets = '';
-    $storage = $this->entityTypeManager->getStorage('styleguide_snippet');
+    // Custom patterns.
+    $custom_patterns = '';
+    $storage = $this->entityTypeManager->getStorage('styleguide_pattern');
     $ids = $storage->getQuery()->execute();
     if (!empty($ids)) {
-      $custom_snippets = $storage->loadMultiple($ids);
+      $custom_patterns = $storage->loadMultiple($ids);
     }
 
     $form = $this->formBuilder->getForm('Drupal\simple_styleguide\Form\StyleguideExamples');
 
     return array(
       '#theme' => 'simple_styleguide',
-      '#default_snippets' => $default_snippets,
+      '#default_patterns' => $default_patterns,
       '#default_colors' => $default_colors,
-      '#custom_snippets' => $custom_snippets,
+      '#custom_patterns' => $custom_patterns,
       '#form' => $form,
     );
   }

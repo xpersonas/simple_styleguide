@@ -1,6 +1,6 @@
-simple_styleguide.styleguide_snippet.*:
+simple_styleguide.styleguide_pattern.*:
   type: config_entity
-  label: 'Styleguide snippet config'
+  label: 'Styleguide pattern config'
   mapping:
     id:
       type: string
@@ -8,8 +8,8 @@ simple_styleguide.styleguide_snippet.*:
     label:
       type: label
       label: 'Label'
-    snippet:
+    pattern:
       type: string
-      label: 'Snippet'
+      label: 'Pattern'
     uuid:
       type: string

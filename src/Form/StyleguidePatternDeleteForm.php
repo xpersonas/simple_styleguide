@@ -7,9 +7,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete Styleguide snippet entities.
+ * Builds the form to delete Styleguide pattern entities.
  */
-class StyleguideSnippetDeleteForm extends EntityConfirmFormBase {
+class StyleguidePatternDeleteForm extends EntityConfirmFormBase {
 
   /**
    * {@inheritdoc}
@@ -22,7 +22,7 @@ class StyleguideSnippetDeleteForm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('entity.styleguide_snippet.collection');
+    return new Url('entity.styleguide_pattern.collection');
   }
 
   /**

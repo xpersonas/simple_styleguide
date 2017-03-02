@@ -36,12 +36,12 @@ class StyleguideSettings extends ConfigFormBase {
     $config = $this->config('simple_styleguide.styleguidesettings');
 
     $form['intro'] = [
-      '#markup' => 'Choose any of the default html snippets you would like to see on your styleguide. You can also create custom snippets as needed.',
+      '#markup' => 'Choose any of the default html patterns you would like to see on your styleguide. You can also create custom patterns as needed.',
     ];
 
-    $form['default_snippets'] = [
+    $form['default_patterns'] = [
       '#type' => 'checkboxes',
-      '#title' => $this->t('Default Snippets'),
+      '#title' => $this->t('Default Patterns'),
       '#options' => [
         'headings' => 'headings',
         'text' => 'text',
@@ -55,12 +55,12 @@ class StyleguideSettings extends ConfigFormBase {
         'buttons' => 'buttons',
         'pagination' => 'pagination',
       ],
-      '#default_value' => (count($config->get('default_snippets')) > 0) ? $config->get('default_snippets') : array(),
+      '#default_value' => (count($config->get('default_patterns')) > 0) ? $config->get('default_patterns') : array(),
     ];
 
-    $button_link = Url::fromRoute('entity.styleguide_snippet.collection')->toString();
+    $button_link = Url::fromRoute('entity.styleguide_pattern.collection')->toString();
     $form['custom'] = [
-      '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Snippets</a></p>',
+      '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Patterns</a></p>',
     ];
 
     $form['color_palette'] = [
@@ -92,7 +92,7 @@ class StyleguideSettings extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $config = $this->config('simple_styleguide.styleguidesettings');
-    $config->set('default_snippets', $form_state->getValue('default_snippets'));
+    $config->set('default_patterns', $form_state->getValue('default_patterns'));
     $config->set('default_colors', explode("\r\n", $form_state->getValue('default_colors')));
 
     $config->save();

@@ -6,11 +6,11 @@ use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class StyleguideSnippetForm.
+ * Class StyleguidePatternForm.
  *
  * @package Drupal\simple_styleguide\Form
  */
-class StyleguideSnippetForm extends EntityForm {
+class StyleguidePatternForm extends EntityForm {
 
   /**
    * {@inheritdoc}
@@ -18,31 +18,31 @@ class StyleguideSnippetForm extends EntityForm {
   public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
-    $styleguide_snippet = $this->entity;
+    $styleguide_pattern = $this->entity;
     $form['label'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label'),
       '#maxlength' => 255,
-      '#default_value' => $styleguide_snippet->label(),
-      '#description' => $this->t("Label for the Styleguide snippet."),
+      '#default_value' => $styleguide_pattern->label(),
+      '#description' => $this->t("Label for the Styleguide pattern."),
       '#required' => TRUE,
     ];
 
-    $form['snippet'] = array(
+    $form['pattern'] = array(
       '#type' => 'textarea',
-      '#title' => $this->t('Snippet'),
+      '#title' => $this->t('Pattern'),
       '#rows' => 15,
 //      '#format' => 'full_html',
-      '#default_value' => $styleguide_snippet->snippet,
+      '#default_value' => $styleguide_pattern->pattern,
     );
 
     $form['id'] = [
       '#type' => 'machine_name',
-      '#default_value' => $styleguide_snippet->id(),
+      '#default_value' => $styleguide_pattern->id(),
       '#machine_name' => [
-        'exists' => '\Drupal\simple_styleguide\Entity\StyleguideSnippet::load',
+        'exists' => '\Drupal\simple_styleguide\Entity\StyleguidePattern::load',
       ],
-      '#disabled' => !$styleguide_snippet->isNew(),
+      '#disabled' => !$styleguide_pattern->isNew(),
     ];
 
     /* You will need additional form elements for your custom properties. */
@@ -54,22 +54,22 @@ class StyleguideSnippetForm extends EntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    $styleguide_snippet = $this->entity;
-    $status = $styleguide_snippet->save();
+    $styleguide_pattern = $this->entity;
+    $status = $styleguide_pattern->save();
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label Styleguide snippet.', [
-          '%label' => $styleguide_snippet->label(),
+        drupal_set_message($this->t('Created the %label Styleguide pattern.', [
+          '%label' => $styleguide_pattern->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label Styleguide snippet.', [
-          '%label' => $styleguide_snippet->label(),
+        drupal_set_message($this->t('Saved the %label Styleguide pattern.', [
+          '%label' => $styleguide_pattern->label(),
         ]));
     }
-    $form_state->setRedirectUrl($styleguide_snippet->toUrl('collection'));
+    $form_state->setRedirectUrl($styleguide_pattern->toUrl('collection'));
   }
 
 }
