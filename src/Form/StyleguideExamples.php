@@ -80,9 +80,9 @@ class StyleguideExamples extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Textfield'),
       '#description' => $this->t('This is an input description.'),
-      '#attributes' => array(
+      '#attributes' => [
         'placeholder' => 'Placeholder text',
-      ),
+      ],
       '#maxlength' => 64,
       '#size' => 64,
     ];
