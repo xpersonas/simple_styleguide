@@ -27,26 +27,26 @@ class StyleguideExamples extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Select list'),
       '#description' => $this->t('This is an input description.'),
-      '#options' => array(
+      '#options' => [
         'option one' => $this->t('option one'),
         'option 2' => $this->t('option 2'),
         'option 3' => $this->t('option 3'),
         'option 4' => $this->t('option 4'),
         'option 5' => $this->t('option 5'),
-      ),
+      ],
     ];
     $form['select_list_multi'] = [
       '#type' => 'select',
       '#title' => $this->t('Select list (multiple)'),
       '#description' => $this->t('This is an input description.'),
       '#multiple' => TRUE,
-      '#options' => array(
+      '#options' => [
         'option one' => $this->t('option one'),
         'option 2' => $this->t('option 2'),
         'option 3' => $this->t('option 3'),
         'option 4' => $this->t('option 4'),
         'option 5' => $this->t('option 5'),
-      ),
+      ],
     ];
     $form['checkbox'] = [
       '#type' => 'checkbox',
@@ -56,25 +56,25 @@ class StyleguideExamples extends FormBase {
       '#type' => 'checkboxes',
       '#title' => $this->t('Checkboxes'),
       '#description' => $this->t('This is an input description.'),
-      '#options' => array(
+      '#options' => [
         'option one' => $this->t('option one'),
         'option 2' => $this->t('option 2'),
         'option 3' => $this->t('option 3'),
         'option 4' => $this->t('option 4'),
         'option 5' => $this->t('option 5'),
-      ),
+      ],
     ];
     $form['radios'] = [
       '#type' => 'radios',
       '#title' => $this->t('Radios'),
       '#description' => $this->t('This is an input description.'),
-      '#options' => array(
+      '#options' => [
         'option one' => $this->t('option one'),
         'option 2' => $this->t('option 2'),
         'option 3' => $this->t('option 3'),
         'option 4' => $this->t('option 4'),
         'option 5' => $this->t('option 5'),
-      ),
+      ],
     ];
     $form['textfield'] = [
       '#type' => 'textfield',
@@ -138,22 +138,14 @@ class StyleguideExamples extends FormBase {
     ];
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => t('Submit'),
+      '#value' => $this->t('Submit'),
     ];
-    $form['actions']['preview'] = array(
+    $form['actions']['preview'] = [
       '#type' => 'button',
       '#value' => $this->t('Preview'),
-    );
-
+    ];
 
     return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
   }
 
   /**

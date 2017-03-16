@@ -28,13 +28,12 @@ class StyleguidePatternForm extends EntityForm {
       '#required' => TRUE,
     ];
 
-    $form['pattern'] = array(
+    $form['pattern'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Pattern'),
       '#rows' => 15,
-//      '#format' => 'full_html',
       '#default_value' => $styleguide_pattern->pattern,
-    );
+    ];
 
     $form['id'] = [
       '#type' => 'machine_name',

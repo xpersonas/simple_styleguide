@@ -50,17 +50,17 @@ function simple_styleguide_theme() {
 function simple_styleguide_page_attachments_alter(array &$attachments) {
   $route_name = \Drupal::routeMatch()->getRouteName();
 
-  if (in_array($route_name, array('simple_styleguide.controller'))) {
+  if (in_array($route_name, ['simple_styleguide.controller'])) {
 
     // Set meta tag for robots.
-    $robots = array(
+    $robots = [
       '#type' => 'html_tag',
       '#tag' => 'meta',
-      '#attributes' => array(
+      '#attributes' => [
         'name' => 'robots',
-        'content' => 'noindex, nofollow',
-      ),
-    );
+        'content' => 'noindex, nofollow'
+      ],
+    ];
     $attachments['#attached']['html_head'][] = [$robots, 'robots'];
   }
 }

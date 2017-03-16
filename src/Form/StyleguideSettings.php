@@ -55,7 +55,7 @@ class StyleguideSettings extends ConfigFormBase {
         'buttons' => 'buttons',
         'pagination' => 'pagination',
       ],
-      '#default_value' => (count($config->get('default_patterns')) > 0) ? $config->get('default_patterns') : array(),
+      '#default_value' => (count($config->get('default_patterns')) > 0) ? $config->get('default_patterns') : [],
     ];
 
     $button_link = Url::fromRoute('entity.styleguide_pattern.collection')->toString();
@@ -67,22 +67,15 @@ class StyleguideSettings extends ConfigFormBase {
       '#type' => 'fieldset',
       '#title' => $this->t('Color Palette'),
     ];
-    $form['color_palette']['default_colors'] = array(
+    $form['color_palette']['default_colors'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Hex Color Code|Class Name|Usage Description'),
       '#default_value' => ($config->get('default_colors') ? implode("\r\n", $config->get('default_colors')) : ''),
       '#description' => $this->t('For example: #FF0000|red|Usage text...'),
       '#prefix' => $this->t('<p>Create a list of all the colors you would like represented in your styleguide. Each color should be on a separate line. By default, hex values will be used in an inline style for the color palette section of the styleguide.</p>'),
-    );
+    ];
 
     return parent::buildForm($form, $form_state);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
   }
 
   /**
