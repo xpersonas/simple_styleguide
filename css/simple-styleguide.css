@@ -4,14 +4,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-.simple-styleguide--site-styles h4 {
-  margin-top: 25px;
-  margin-bottom: 15px;
-}
-.simple-styleguide--site-styles h4:first-child {
-  margin-top: 0;
-  margin-bottom: 15px;
-}
 .simple-styleguide--site-styles h3.simple-styleguide--sectionhead {
   background: #444544;
   padding: 20px;
