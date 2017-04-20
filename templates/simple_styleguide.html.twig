@@ -48,7 +48,7 @@
                         <div class="simple-styleguide--color--swatch">
                             <span class="simple-styleguide--color--swatch--class"><label>class:</label> {{ default_color.class }}</span>
                             <span class="simple-styleguide--color--swatch--values"><label>values:</label> {{ default_color.hex }} | rgb({{ default_color.rgb }})</span>
-                            <span class="simple-styleguide--color--swatch--usage"><label>usage:</label> {{ default_color.description }}</span>
+                            {% if default_color.description is not empty %}<span class="simple-styleguide--color--swatch--usage"><label>usage:</label> {{ default_color.description }}</span>{% endif %}
                         </div>
                     </div>
                 {% endfor %}
