@@ -5,12 +5,14 @@
   margin-right: auto;
 }
 .simple-styleguide--site-styles h3.simple-styleguide--sectionhead {
-  background: #444544;
-  padding: 20px;
+  padding: 20px 20px 12px 0;
   margin: 80px 0 10px 0;
-  color: white;
+  color: #000;
   font-size: 1.2rem;
-  border-radius: 12px;
+  position: relative;
+  border-bottom: 4px solid #000;
+  border-top: 1px solid #000;
+  text-transform: uppercase;
 }
 .simple-styleguide--site-styles h3.simple-styleguide--sectionhead.first {
   margin-top: 20px;
