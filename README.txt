@@ -31,4 +31,3 @@ http://yoursite.com/admin/config/styleguide/settings
 
 Viewing
 http://yoursite.com/simple-styleguide
-
