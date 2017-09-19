@@ -58,7 +58,7 @@ class DefaultController extends ControllerBase {
     $config_patterns = $config->get('default_patterns');
 
     // Selected patterns.
-    $default_patterns = '';
+    $default_patterns = [];
     if ($config_patterns) {
       foreach ($config_patterns as $key => $value) {
         if ($value) {
@@ -68,7 +68,7 @@ class DefaultController extends ControllerBase {
     }
 
     // Custom colors.
-    $default_colors = '';
+    $default_colors = [];
     if ($config_colors) {
       foreach ($config_colors as $key => $value) {
         $color_split = explode('|', $value);
