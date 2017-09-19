@@ -47,10 +47,10 @@ class DefaultController extends ControllerBase {
   }
 
   /**
-   * Hello.
+   * Primary Page.
    *
-   * @return string
-   *   Return Hello string.
+   * @return array
+   *   Returns markup array.
    */
   public function index() {
     $config = $this->config('simple_styleguide.styleguidesettings');
