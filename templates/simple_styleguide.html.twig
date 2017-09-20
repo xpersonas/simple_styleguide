@@ -26,7 +26,7 @@
             <strong>Custom patterns:</strong>
             <ul class="simple-styleguide--jump-nav">
                 {% for custom_pattern in custom_patterns %}
-                    <li><a href="#{{ custom_pattern.label }}">{{ custom_pattern.label|lower }}</a></li>
+                    <li><a href="#{{ custom_pattern.id }}">{{ custom_pattern.label|lower }}</a></li>
                 {% endfor %}
             </ul>
             {% endif %}
@@ -65,7 +65,7 @@
         {# -- CUSTOM SEGMENTS ----------------------------------------------- #}
         {% if custom_patterns is defined and custom_patterns is not empty %}
             {% for custom_pattern in custom_patterns %}
-                <a name="{{ custom_pattern.label }}"></a>
+                <a name="{{ custom_pattern.id }}"></a>
                 <h3 class="simple-styleguide--sectionhead">{{ custom_pattern.label|lower }}</h3>
 
                 <div class="simple-styleguide">
