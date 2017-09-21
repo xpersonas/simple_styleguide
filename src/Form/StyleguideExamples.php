@@ -103,14 +103,14 @@ class StyleguideExamples extends FormBase {
     ];
     $form['password'] = [
       '#type' => 'password',
-      '#title' => $this->t('Password'),
+      '#title' => $this->t('Password w/out Confirmation'),
       '#description' => $this->t('This is an input description.'),
       '#maxlength' => 64,
       '#size' => 64,
     ];
     $form['password_confirm'] = [
       '#type' => 'password_confirm',
-      '#title' => $this->t('Password Confirm'),
+      '#title' => $this->t(''),
       '#description' => $this->t('This is an input description.'),
       '#maxlength' => 64,
       '#size' => 64,
