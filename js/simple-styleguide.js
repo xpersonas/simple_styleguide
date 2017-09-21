@@ -6,7 +6,7 @@
 
 (function ($) {
   'use strict';
-  Drupal.behaviors.app = {
+  Drupal.behaviors.simple_styleguide = {
     attach: function (context, settings) {
       jQuery('.simple-styleguide--view-sourecode').click(function () {
         jQuery(this).next('pre').toggle();
