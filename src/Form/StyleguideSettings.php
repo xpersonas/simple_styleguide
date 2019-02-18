@@ -59,7 +59,7 @@ class StyleguideSettings extends ConfigFormBase {
         'buttons' => 'buttons',
         'pagination' => 'pagination',
       ],
-      '#default_value' => (count($config->get('default_patterns')) > 0) ? $config->get('default_patterns') : [],
+      '#default_value' => (!empty($config->get('default_patterns')) && count($config->get('default_patterns')) > 0) ? $config->get('default_patterns') : [],
     ];
 
     $button_link = Url::fromRoute('entity.styleguide_pattern.collection')->toString();
