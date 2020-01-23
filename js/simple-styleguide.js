@@ -1,30 +1,37 @@
 /**
  * @file
- * Primary application javascript.
+ * Simple styleguide javascript.
  *
  */
 
-(function ($) {
-  'use strict';
-  Drupal.behaviors.simple_styleguide = {
-    attach: function (context, settings) {
-      jQuery('.simple-styleguide--view-sourecode').click(function () {
-        jQuery(this).next('pre').toggle();
-      });
+const viewSourceLinks = document.querySelectorAll(
+  '.simple-styleguide--view-sourecode'
+);
 
-      jQuery('.calculate').each(function () {
-        var line_height = '<label>line-height:</label> ' + jQuery(this).find('.measure').css('line-height');
-        var font_size = '<label>font-size:</label> ' + jQuery(this).find('.measure').css('font-size');
-        var margin_bottom = jQuery(this).find('.measure').css('margin-bottom');
-        var margin_top = jQuery(this).find('.measure').css('margin-top');
-        var margin_right = jQuery(this).find('.measure').css('margin-right');
-        var margin_left = jQuery(this).find('.measure').css('margin-left');
-        var margin = '<label>margin:</label> ' + margin_top + ' ' + margin_right + ' ' + margin_bottom + ' ' + margin_left;
+[].forEach.call(viewSourceLinks, el => {
+  el.addEventListener('click', () => {
+    el.nextElementSibling.classList.toggle('active');
+  });
+});
 
-        var output = font_size + '<br/>' + line_height + '<br/>' + margin;
+const calculableElements = document.querySelectorAll('.calculate');
 
-        jQuery(this).find('.info').html(output);
-      });
-    }
-  };
-})(jQuery);
+[].forEach.call(calculableElements, el => {
+  const measuredElement = el.querySelector('.measure');
+  const info = el.querySelector('.info');
+  const lineHeight = `<label>line-height:</label> ${
+    window.getComputedStyle(measuredElement).lineHeight
+  }`;
+  const fontSize = `<label>font-size:</label> ${
+    window.getComputedStyle(measuredElement).fontSize
+  }`;
+  const margins = `<label>margin:</label> ${
+    window.getComputedStyle(measuredElement).marginBottom
+  }
+        ${window.getComputedStyle(measuredElement).marginRight} ${
+    window.getComputedStyle(measuredElement).marginBottom
+  } ${window.getComputedStyle(measuredElement).marginLeft}`;
+
+  info.innerHTML = `${fontSize}<br/>${lineHeight}<br/>${margins}`;
+});
+

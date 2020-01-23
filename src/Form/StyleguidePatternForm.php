@@ -58,13 +58,13 @@ class StyleguidePatternForm extends EntityForm {
 
     switch ($status) {
       case SAVED_NEW:
-        drupal_set_message($this->t('Created the %label Styleguide pattern.', [
+        $this->messenger()->addMessage($this->t('Created the %label Styleguide pattern.', [
           '%label' => $styleguide_pattern->label(),
         ]));
         break;
 
       default:
-        drupal_set_message($this->t('Saved the %label Styleguide pattern.', [
+        $this->messenger()->addMessage($this->t('Saved the %label Styleguide pattern.', [
           '%label' => $styleguide_pattern->label(),
         ]));
     }

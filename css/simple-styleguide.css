@@ -62,6 +62,10 @@
   }
 }
 
+.simple-styleguide--view-sourecode {
+  cursor: pointer;
+}
+
 .simple-styleguide pre {
   display: none;
   background: #f1f1f1;
@@ -69,6 +73,10 @@
   border: 1px solid #fff;
   border-bottom: 4px solid #fff;
   font-family: monospace;
+}
+
+.simple-styleguide pre.active {
+  display: block;
 }
 
 .simple-styleguide--pattern {

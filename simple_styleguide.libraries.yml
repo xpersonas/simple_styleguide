@@ -5,3 +5,6 @@ simple_styleguide.default:
       css/simple-styleguide.css: {}
   js:
     js/simple-styleguide.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

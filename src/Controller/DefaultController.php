@@ -99,14 +99,11 @@ class DefaultController extends ControllerBase {
       $custom_patterns = $storage->loadMultiple($ids);
     }
 
-    $form = $this->formBuilder->getForm('Drupal\simple_styleguide\Form\StyleguideExamples');
-
     return [
       '#theme' => 'simple_styleguide',
       '#default_patterns' => $default_patterns,
       '#default_colors' => $default_colors,
       '#custom_patterns' => $custom_patterns,
-      '#form' => $form,
     ];
   }
 
