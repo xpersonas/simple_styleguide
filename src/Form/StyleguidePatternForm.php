@@ -4,6 +4,7 @@ namespace Drupal\simple_styleguide\Form;
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 
 /**
  * Class StyleguidePatternForm.
@@ -11,6 +12,13 @@ use Drupal\Core\Form\FormStateInterface;
  * @package Drupal\simple_styleguide\Form
  */
 class StyleguidePatternForm extends EntityForm {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getListUrl() {
+    return new Url('simple_styleguide.patterns_form');
+  }
 
   /**
    * {@inheritdoc}
@@ -33,6 +41,13 @@ class StyleguidePatternForm extends EntityForm {
       '#title' => $this->t('Pattern'),
       '#rows' => 15,
       '#default_value' => $styleguide_pattern->pattern,
+    ];
+
+    $form['weight'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Weight'),
+      '#rows' => 15,
+      '#default_value' => ($styleguide_pattern->weight ?: 0),
     ];
 
     $form['id'] = [
@@ -68,7 +83,8 @@ class StyleguidePatternForm extends EntityForm {
           '%label' => $styleguide_pattern->label(),
         ]));
     }
-    $form_state->setRedirectUrl($styleguide_pattern->toUrl('collection'));
+
+    $form_state->setRedirectUrl($this->getListUrl());
   }
 
 }

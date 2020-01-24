@@ -99,6 +99,11 @@ class DefaultController extends ControllerBase {
       $custom_patterns = $storage->loadMultiple($ids);
     }
 
+    // Sort patterns by weight.
+    usort($custom_patterns, function ($a, $b) {
+      return $a->get('weight') <=> $b->get('weight');
+    });
+
     return [
       '#theme' => 'simple_styleguide',
       '#default_patterns' => $default_patterns,

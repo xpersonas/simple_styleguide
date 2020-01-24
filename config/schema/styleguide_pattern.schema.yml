@@ -11,5 +11,8 @@ simple_styleguide.styleguide_pattern.*:
     pattern:
       type: string
       label: 'Pattern'
+    weight:
+      type: integer
+      label: 'Weight'
     uuid:
       type: string

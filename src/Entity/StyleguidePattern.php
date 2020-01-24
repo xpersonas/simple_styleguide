@@ -60,4 +60,11 @@ class StyleguidePattern extends ConfigEntityBase implements StyleguidePatternInt
    */
   public $pattern;
 
+  /**
+   * The styleguide pattern weight.
+   *
+   * @var int
+   */
+  public $weight;
+
 }

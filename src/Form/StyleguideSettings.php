@@ -35,10 +35,6 @@ class StyleguideSettings extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('simple_styleguide.styleguidesettings');
 
-    $form['link'] = [
-      '#markup' => '<p><a href="/simple-styleguide" class="button">View Styleguide</a></p>',
-    ];
-
     $form['intro'] = [
       '#markup' => 'Choose any of the default html patterns you would like to see on your styleguide. You can also create custom patterns as needed.',
     ];

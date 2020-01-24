@@ -17,6 +17,7 @@ class StyleguidePatternListBuilder extends ConfigEntityListBuilder {
     $header['label'] = $this->t('Label');
     /*$header['pattern'] = $this->t('Pattern');*/
     /*$header['id'] = $this->t('Machine name');*/
+    $header['weight'] = $this->t('Weight');
     return $header + parent::buildHeader();
   }
 
@@ -27,6 +28,7 @@ class StyleguidePatternListBuilder extends ConfigEntityListBuilder {
     $row['label'] = $entity->label();
     /*$row['pattern'] = $entity->pattern;*/
     /*$row['id'] = $entity->id();*/
+    $row['weight'] = $entity->get('weight');
 
     // You probably want a few more properties here...
     return $row + parent::buildRow($entity);
