@@ -8,6 +8,9 @@ simple_styleguide.styleguide_pattern.*:
     label:
       type: label
       label: 'Label'
+    description:
+      type: blob
+      label: 'Description'
     pattern:
       type: string
       label: 'Pattern'

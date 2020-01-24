@@ -58,7 +58,7 @@ class StyleguideSettings extends ConfigFormBase {
       '#default_value' => (!empty($config->get('default_patterns')) && count($config->get('default_patterns')) > 0) ? $config->get('default_patterns') : [],
     ];
 
-    $button_link = Url::fromRoute('entity.styleguide_pattern.collection')->toString();
+    $button_link = Url::fromRoute('simple_styleguide.patterns_form')->toString();
     $form['custom'] = [
       '#markup' => '<p><a href="' . $button_link . '" class="button">Create Custom Styleguide Patterns</a></p>',
     ];

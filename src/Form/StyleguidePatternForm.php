@@ -36,18 +36,20 @@ class StyleguidePatternForm extends EntityForm {
       '#required' => TRUE,
     ];
 
+    $form['description'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Description'),
+      '#format' => 'full_html',
+      '#rows' => 5,
+      '#default_value' => ($styleguide_pattern->description['value'] ?: ''),
+    ];
+
     $form['pattern'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Pattern'),
       '#rows' => 15,
       '#default_value' => $styleguide_pattern->pattern,
-    ];
-
-    $form['weight'] = [
-      '#type' => 'number',
-      '#title' => $this->t('Weight'),
-      '#rows' => 15,
-      '#default_value' => ($styleguide_pattern->weight ?: 0),
+      '#description' => $this->t('Paste in your raw html.'),
     ];
 
     $form['id'] = [
@@ -69,6 +71,27 @@ class StyleguidePatternForm extends EntityForm {
    */
   public function save(array $form, FormStateInterface $form_state) {
     $styleguide_pattern = $this->entity;
+
+    // Add as highest ranked by weight to put it at the bottom of the list.
+    $storage = $this->entityTypeManager->getStorage('styleguide_pattern');
+    $ids = $storage->getQuery()->execute();
+    if (!empty($ids)) {
+      $custom_patterns = $storage->loadMultiple($ids);
+    }
+
+    // If no weight is set, then this is a new entry.
+    if (!$styleguide_pattern->weight) {
+      $maxWeight = NULL;
+      foreach ($custom_patterns as $pattern) {
+        if (!$maxWeight || $pattern->weight > $maxWeight) {
+          $maxWeight = $pattern->weight;
+        }
+      }
+
+      $styleguide_pattern->weight = $maxWeight + 1;
+    }
+
+    // Save pattern entity.
     $status = $styleguide_pattern->save();
 
     switch ($status) {

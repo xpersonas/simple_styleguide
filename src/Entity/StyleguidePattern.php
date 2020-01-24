@@ -11,7 +11,6 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   id = "styleguide_pattern",
  *   label = @Translation("Styleguide pattern"),
  *   handlers = {
- *     "list_builder" = "Drupal\simple_styleguide\StyleguidePatternListBuilder",
  *     "form" = {
  *       "add" = "Drupal\simple_styleguide\Form\StyleguidePatternForm",
  *       "edit" = "Drupal\simple_styleguide\Form\StyleguidePatternForm",
@@ -33,7 +32,6 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "add-form" = "/admin/config/styleguide/patterns/add",
  *     "edit-form" = "/admin/config/styleguide/patterns/{styleguide_pattern}/edit",
  *     "delete-form" = "/admin/config/styleguide/patterns/{styleguide_pattern}/delete",
- *     "collection" = "/admin/config/styleguide/patterns"
  *   }
  * )
  */
@@ -66,5 +64,12 @@ class StyleguidePattern extends ConfigEntityBase implements StyleguidePatternInt
    * @var int
    */
   public $weight;
+
+  /**
+   * The styleguide pattern description.
+   *
+   * @var string
+   */
+  public $description;
 
 }

@@ -18,17 +18,17 @@ simple_styleguide.styleguide_settings:
   path: '/admin/config/styleguide/settings'
   defaults:
     _form: '\Drupal\simple_styleguide\Form\StyleguideSettings'
-    _title: 'Styleguide Settings'
+    _title: 'Settings'
   requirements:
     _permission: 'administer site configuration'
   options:
     _admin_route: TRUE
 
 simple_styleguide.patterns_form:
-  path: '/admin/config/styleguide/patterns/list'
+  path: '/admin/config/styleguide/patterns'
   defaults:
     _form: '\Drupal\simple_styleguide\Form\PatternsCollectionForm'
-    _title: 'Styleguide Patterns'
+    _title: 'Patterns'
   requirements:
     _permission: 'administer site configuration'
   options:
