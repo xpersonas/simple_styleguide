@@ -22,7 +22,7 @@ class StyleguidePatternDeleteForm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('simple_styleguide.patterns_form');
+    return new Url('entity.styleguide_pattern.collection');
   }
 
   /**

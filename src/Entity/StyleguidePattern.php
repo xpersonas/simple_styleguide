@@ -11,6 +11,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   id = "styleguide_pattern",
  *   label = @Translation("Styleguide pattern"),
  *   handlers = {
+ *     "list_builder" = "Drupal\simple_styleguide\StyleguidePatternListBuilder",
  *     "form" = {
  *       "add" = "Drupal\simple_styleguide\Form\StyleguidePatternForm",
  *       "edit" = "Drupal\simple_styleguide\Form\StyleguidePatternForm",
@@ -24,6 +25,7 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   admin_permission = "administer style guide",
  *   entity_keys = {
  *     "id" = "id",
+ *     "weight" = "weight",
  *     "label" = "label",
  *     "uuid" = "uuid"
  *   },
@@ -32,6 +34,14 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "add-form" = "/admin/config/styleguide/patterns/add",
  *     "edit-form" = "/admin/config/styleguide/patterns/{styleguide_pattern}/edit",
  *     "delete-form" = "/admin/config/styleguide/patterns/{styleguide_pattern}/delete",
+ *     "collection" = "/admin/config/styleguide/patterns"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "pattern",
+ *     "weight",
+ *     "description"
  *   }
  * )
  */

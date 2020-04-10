@@ -2,22 +2,29 @@
 
 namespace Drupal\simple_styleguide;
 
-use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
+use Drupal\Core\Config\Entity\DraggableListBuilder;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides a listing of Styleguide pattern entities.
+ * Defines a class to build a listing of user ball entities.
+ *
+ * @see \Drupal\simple_styleguide\Entity\StyleguidePattern
  */
-class StyleguidePatternListBuilder extends ConfigEntityListBuilder {
+class StyleguidePatternListBuilder extends DraggableListBuilder {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'sample_config_entity_ball_form';
+  }
 
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['label'] = $this->t('Label');
-    /*$header['pattern'] = $this->t('Pattern');*/
-    /*$header['id'] = $this->t('Machine name');*/
-    $header['weight'] = $this->t('Weight');
+    $header['label'] = $this->t('Name');
     return $header + parent::buildHeader();
   }
 
@@ -26,12 +33,15 @@ class StyleguidePatternListBuilder extends ConfigEntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     $row['label'] = $entity->label();
-    /*$row['pattern'] = $entity->pattern;*/
-    /*$row['id'] = $entity->id();*/
-    $row['weight'] = $entity->get('weight');
-
-    // You probably want a few more properties here...
     return $row + parent::buildRow($entity);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    parent::submitForm($form, $form_state);
+    $this->messenger()->addMessage('Styleguide pattern settings updated.');
   }
 
 }

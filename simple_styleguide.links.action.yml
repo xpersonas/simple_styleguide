@@ -2,4 +2,4 @@ entity.styleguide_pattern.add_form:
   route_name: 'entity.styleguide_pattern.add_form'
   title: 'Add styleguide pattern'
   appears_on:
-    - simple_styleguide.patterns_form
+    - entity.styleguide_pattern.collection

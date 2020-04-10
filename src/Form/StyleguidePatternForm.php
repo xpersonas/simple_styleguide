@@ -17,7 +17,7 @@ class StyleguidePatternForm extends EntityForm {
    * {@inheritdoc}
    */
   public function getListUrl() {
-    return new Url('simple_styleguide.patterns_form');
+    return new Url('entity.styleguide_pattern.collection');
   }
 
   /**
@@ -80,7 +80,7 @@ class StyleguidePatternForm extends EntityForm {
     }
 
     // If no weight is set, then this is a new entry.
-    if (!$styleguide_pattern->weight) {
+    if (!$styleguide_pattern->weight && !empty($custom_patterns)) {
       $maxWeight = NULL;
       foreach ($custom_patterns as $pattern) {
         if (!$maxWeight || $pattern->weight > $maxWeight) {

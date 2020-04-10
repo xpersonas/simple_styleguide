@@ -24,7 +24,7 @@ simple_styleguide.settings:
   weight: 5
 
 simple_styleguide.patterns:
-  route_name: simple_styleguide.patterns_form
+  route_name: entity.styleguide_pattern.collection
   title: Patterns
   base_route: simple_styleguide
   weight: 10
