@@ -92,11 +92,21 @@ class DefaultController extends ControllerBase {
     }
 
     // Custom patterns.
-    $custom_patterns = '';
+    $custom_patterns = [];
     $storage = $this->entityTypeManager->getStorage('styleguide_pattern');
     $ids = $storage->getQuery()->execute();
     if (!empty($ids)) {
-      $custom_patterns = $storage->loadMultiple($ids);
+      $patterns = $storage->loadMultiple($ids);
+
+      foreach ($patterns as $pattern) {
+        $pattern->template = [
+          '#theme' => 'simple_styleguide_pattern',
+          '#pattern_id' => $pattern->id(),
+          '#pattern' => $pattern->pattern,
+        ];
+
+        $custom_patterns[] = $pattern;
+      }
     }
 
     // Sort patterns by weight.

@@ -29,7 +29,6 @@ function simple_styleguide_help($route_name, RouteMatchInterface $route_match) {
 function simple_styleguide_theme() {
   return [
     'simple_styleguide' => [
-      'template' => 'simple_styleguide',
       'render element' => 'children',
       'variables' => [
         'default_patterns' => NULL,
@@ -38,7 +37,21 @@ function simple_styleguide_theme() {
         'form' => NULL,
       ],
     ],
+    'simple_styleguide_pattern' => [
+      'variables' => [
+        'pattern_id' => NULL,
+        'pattern' => NULL,
+      ]
+    ],
   ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function simple_styleguide_theme_suggestions_simple_styleguide_pattern(array $variables) {
+  $pattern_id = $variables['pattern_id'];
+  return ['simple_styleguide_pattern__' . $pattern_id];
 }
 
 /**

@@ -67,13 +67,13 @@
             {% for custom_pattern in custom_patterns %}
                 <a name="{{ custom_pattern.id }}"></a>
                 <h3 class="simple-styleguide--sectionhead">{{ custom_pattern.label|lower }}</h3>
-                <div class="simple-styleguide--pattern-description">{{ custom_pattern.description.value|raw }}</div>
+                <div class="simple-styleguide--pattern-description" data-pattern-id="{{ custom_pattern.id }}">{{ custom_pattern.description.value|raw }}</div>
 
                 <div class="simple-styleguide">
-                    {{ custom_pattern.pattern|raw }}
+                    {{ custom_pattern.template }}
                     <div class="simple-styleguide--pattern">
                         <button class="simple-styleguide--view-sourecode">View Source</button>
-                        <pre>{{ custom_pattern.pattern }}</pre>
+                        <pre>{{ custom_pattern.template|render|escape('html') }}</pre>
                     </div>
                 </div>
             {% endfor %}
