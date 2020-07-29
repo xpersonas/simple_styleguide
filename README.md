@@ -25,8 +25,8 @@ With these tools you can create a very flexible styleguide/pattern library. All
 of this can be accomplished without ever touching a line of code (other than
 your site's css).
 
-# CONFIGURATION #
--------------
+### CONFIGURATION ###
+
 Settings  
 http://yoursite.com/admin/config/styleguide/settings
 
