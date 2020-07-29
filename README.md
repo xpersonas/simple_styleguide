@@ -6,6 +6,12 @@ elements are required. No elements are added by default. And all this
 functionality is fully accessible to site builders without having to write
 code.
 
+## Installation ##
+Module page: https://www.drupal.org/project/simple_styleguide
+```
+composer require drupal/simple_styleguide
+```
+
 ## Default Patterns ##
 
 You can choose from a set of very basic default patterns such as headings, text,
